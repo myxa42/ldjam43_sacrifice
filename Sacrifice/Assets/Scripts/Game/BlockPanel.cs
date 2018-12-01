@@ -32,13 +32,22 @@ public class BlockPanel : MonoBehaviour
         for(int i=0;i<blocks.Count;i++)
         {
             var block = blocks[i];
+            if (block == null)
+            {
+                blocks.RemoveAt(i);
+                i--;
+                continue;
+            }
             block.AddOffset(-Speed);
             float blockX = block.GetOffset();
             if (blockX < -Block.Width / 2)
             {
-                Destroy(block.gameObject);
-                blocks.RemoveAt(i);
-                i--;
+                if (!block.dragging)
+                {
+                    Destroy(block.gameObject);
+                    blocks.RemoveAt(i);
+                    i--;
+                }
             }
             else
             {

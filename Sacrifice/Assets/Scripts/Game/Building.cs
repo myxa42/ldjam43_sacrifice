@@ -18,6 +18,9 @@ public class Building : MonoBehaviour
     private Dictionary<BlockType, int> availableResources = new Dictionary<BlockType, int>();
     public GameController gameController;
     public BlockType product=BlockType.Empty;
+    public float workTime = 1;
+    private float timeLeft;
+    private bool building;
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +31,47 @@ public class Building : MonoBehaviour
 
     public void AddResource(BlockType type,int count=1)
     {
-        availableResources[type] += count;
+        int n=0;
+        availableResources.TryGetValue(type, out n);
+        availableResources[type] = n+count;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Block.buildingUnderMouse == this)
+        {
+            activeImage.color = new Color(0, 1, 0, 1);
+            inactiveImage.color = new Color(0, 1, 0, 1);
+        }
+        else
+        {
+            activeImage.color = new Color(1, 1, 1, 1);
+            inactiveImage.color = new Color(1, 1, 1, 1);
+        }
+
+        timeLeft -= Time.deltaTime;
+        if (timeLeft > 0)
+        {
+            activeImage.enabled = true;
+            inactiveImage.enabled = false;
+            return;
+        }
+        else
+        {
+            if (building)
+            {
+                building = false;
+                if (product != BlockType.Empty)
+                {
+                    gameController.pendingBlocks.Enqueue(product);
+                }
+            }
+            activeImage.enabled = false;
+            inactiveImage.enabled = true;
+            timeLeft = 0;
+        }
+
         bool haveEnoughResources = true;
         foreach(var res in requiredResources)
         {
@@ -55,9 +93,9 @@ public class Building : MonoBehaviour
             availableResources[res.blockType] -= res.count;
         }
 
-        if (product != BlockType.Empty)
-        {
-            gameController.pendingBlocks.Enqueue(product);
-        }
+        building = true;
+        timeLeft = workTime;
+        activeImage.enabled = true;
+        inactiveImage.enabled = false;
     }
 }
