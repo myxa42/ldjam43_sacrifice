@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae987634c53a64a5aa5efedf6be28996, type: 3}
   m_Name: Blocks
   m_EditorClassIdentifier: 
-  Prefabs:
-  - {fileID: 3592028170279493245, guid: 26745699c620e4b1189ed29148796b1e, type: 3}
-  - {fileID: 2996384218899210282, guid: 3c1888297f4ed480386a547a04c4881b, type: 3}
-  - {fileID: 7151662106808908037, guid: 4b3f995465b5945b3a91b966bee6e209, type: 3}
-  - {fileID: 2408637942109347678, guid: d7f09df943161483585ca2b7e3c947a5, type: 3}
-  - {fileID: 5747684347994935287, guid: 06da63c24af3d4ec68a22c95e917e087, type: 3}
-  - {fileID: 9078389413388080792, guid: ae521705caf444829b0abe703ef32435, type: 3}
+  empty: {fileID: 2408637942109347678, guid: d7f09df943161483585ca2b7e3c947a5, type: 3}
+  gold: {fileID: 9078389413388080792, guid: ae521705caf444829b0abe703ef32435, type: 3}
+  crown: {fileID: 2996384218899210282, guid: 3c1888297f4ed480386a547a04c4881b, type: 3}
+  coin: {fileID: 3592028170279493245, guid: 26745699c620e4b1189ed29148796b1e, type: 3}
+  dress: {fileID: 7151662106808908037, guid: 4b3f995465b5945b3a91b966bee6e209, type: 3}
+  fabric: {fileID: 5747684347994935287, guid: 06da63c24af3d4ec68a22c95e917e087, type: 3}

@@ -6,29 +6,61 @@ using UnityEngine.UI;
 public class BlockPanel : MonoBehaviour
 {
     public Blocks BlockList;
-    private static System.Random random = new System.Random();
-    int init = 2;
+    private List<Block> blocks = new List<Block>();
+    public float Speed=1;
+    public GameController gameController;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        int i = 0;
+        var image = GetComponent<Image>();
+        for (float x = 0; x <= image.rectTransform.rect.width + Block.Width / 2; x += Block.Width)
+        {
+            var go = Instantiate(BlockList.empty);
+            go.transform.SetParent(transform);
+            var block = go.GetComponent<Block>();
+            block.SetIndex(i++);
+            blocks.Add(block);
+        }
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    private void FixedUpdate()
     {
-        if (--init != 0)
-            return;
-
-        var image = GetComponent<Image>();
-        Debug.Log($"{image.rectTransform.rect.width}");
-        for (int i = 0; i < 11; i++)
+        float x = 0;
+        for(int i=0;i<blocks.Count;i++)
         {
-            int index = random.Next(0, BlockList.Prefabs.Length);
-            var go = Instantiate(BlockList.Prefabs[index]);
-            go.transform.SetParent(transform);
-            go.GetComponent<Block>().SetIndex(i);
+            var block = blocks[i];
+            block.AddOffset(-Speed);
+            float blockX = block.GetOffset();
+            if (blockX < -Block.Width / 2)
+            {
+                Destroy(block.gameObject);
+                blocks.RemoveAt(i);
+                i--;
+            }
+            else
+            {
+                x = Mathf.Max(x, blockX);
+            }
         }
+        x += Block.Width;
+        var image = GetComponent<Image>();
+        while (x<= image.rectTransform.rect.width + Block.Width / 2)
+        {
+            BlockType type = BlockType.Empty;
+            if (gameController.pendingBlocks.Count>0)
+            {
+                type = gameController.pendingBlocks.Dequeue();
+            }
 
+            var go = Instantiate(BlockList.GetPrefab(type));
+            go.transform.SetParent(transform);
+            var block = go.GetComponent<Block>();
+            block.SetOffset(x);
+            blocks.Add(block);
+            x += Block.Width;
+        }
     }
 }
