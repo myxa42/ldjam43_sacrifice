@@ -5,12 +5,16 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public Queue<BlockType> pendingBlocks = new Queue<BlockType>();
+    public float coinSpawnFrequency = 1;
+    private float timeUntilNextCoin;
 
     private void Update()
     {
-        while (pendingBlocks.Count < 10)
+        timeUntilNextCoin -= Time.deltaTime;
+        if (timeUntilNextCoin <= 0)
         {
-            pendingBlocks.Enqueue((BlockType)new System.Random().Next(0, 5));
+            timeUntilNextCoin = coinSpawnFrequency;
+            pendingBlocks.Enqueue(BlockType.Coin);
         }
     }
 }

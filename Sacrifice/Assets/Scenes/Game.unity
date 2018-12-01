@@ -388,6 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70b0b7ed3a0244ef9b718a4a621339f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinSpawnFrequency: 5
 --- !u!4 &957739818
 Transform:
   m_ObjectHideFlags: 0
