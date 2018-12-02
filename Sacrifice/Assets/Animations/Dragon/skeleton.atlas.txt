@@ -1,0 +1,139 @@
+
+skeleton.png
+size: 4096,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: false
+  xy: 2, 903
+  size: 1152, 1118
+  orig: 1152, 1118
+  offset: 0, 0
+  index: -1
+Eye1
+  rotate: false
+  xy: 2174, 982
+  size: 192, 199
+  orig: 192, 199
+  offset: 0, 0
+  index: -1
+Eye1Bad
+  rotate: false
+  xy: 3466, 1747
+  size: 273, 274
+  orig: 273, 274
+  offset: 0, 0
+  index: -1
+Eye2
+  rotate: false
+  xy: 3135, 1139
+  size: 178, 198
+  orig: 178, 198
+  offset: 0, 0
+  index: -1
+Eye2Bad
+  rotate: true
+  xy: 397, 12
+  size: 222, 266
+  orig: 222, 266
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 2, 236
+  size: 699, 665
+  orig: 699, 665
+  offset: 0, 0
+  index: -1
+LeftHandBottom
+  rotate: false
+  xy: 3741, 1831
+  size: 256, 190
+  orig: 256, 190
+  offset: 0, 0
+  index: -1
+LeftHandTop
+  rotate: false
+  xy: 2, 2
+  size: 393, 232
+  orig: 393, 232
+  offset: 0, 0
+  index: -1
+LeftPalm
+  rotate: false
+  xy: 890, 190
+  size: 182, 141
+  orig: 182, 141
+  offset: 0, 0
+  index: -1
+LowerJaw
+  rotate: false
+  xy: 2918, 1702
+  size: 546, 319
+  orig: 546, 319
+  offset: 0, 0
+  index: -1
+RightHandBottom
+  rotate: true
+  xy: 3303, 1444
+  size: 256, 153
+  orig: 256, 153
+  offset: 0, 0
+  index: -1
+RightHandTop
+  rotate: false
+  xy: 2918, 1339
+  size: 383, 361
+  orig: 383, 361
+  offset: 0, 0
+  index: -1
+RightPalm
+  rotate: false
+  xy: 703, 179
+  size: 185, 152
+  orig: 185, 152
+  offset: 0, 0
+  index: -1
+Tail
+  rotate: false
+  xy: 1156, 1183
+  size: 1286, 838
+  orig: 1286, 838
+  offset: 0, 0
+  index: -1
+Tongue
+  rotate: false
+  xy: 1890, 941
+  size: 282, 240
+  orig: 282, 240
+  offset: 0, 0
+  index: -1
+UpperJaw
+  rotate: true
+  xy: 703, 333
+  size: 568, 426
+  orig: 568, 426
+  offset: 0, 0
+  index: -1
+dead_eye
+  rotate: false
+  xy: 2918, 1183
+  size: 215, 154
+  orig: 215, 154
+  offset: 0, 0
+  index: -1
+prince
+  rotate: true
+  xy: 1156, 910
+  size: 271, 732
+  orig: 271, 732
+  offset: 0, 0
+  index: -1
+princess
+  rotate: false
+  xy: 2444, 1189
+  size: 472, 832
+  orig: 472, 832
+  offset: 0, 0
+  index: -1
