@@ -12,6 +12,11 @@ public enum BlockType
     Coin,
     Dress,
     Fabric,
+    Wheat,
+    Bomb,
+    Tools,
+    Bread,
+    Cake,
 }
 
 public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
@@ -21,19 +26,44 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
     private float position;
     public static Building buildingUnderMouse;
     public BlockType type;
+    public Image background;
+    public Image icon;
+
+    void Start ()
+    {
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+    }
+
+    public void DestroyIcon()
+    {
+        if (icon != null && type != BlockType.Empty)
+        {
+            Destroy(icon.gameObject);
+            icon = null;
+            type = BlockType.Empty;
+        }
+    }
 
     public void SetIndex(int index)
     {
         position = index * Width;
+        background.GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
         if (!dragging)
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
+        {
+            if (icon!=null)
+                icon.GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
+        }
     }
 
     public void AddOffset(float offset)
     {
         position += offset;
+        background.GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
         if (!dragging)
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
+        {
+            if (icon != null)
+                icon.GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
+        }
     }
 
     public float GetOffset()
@@ -44,15 +74,20 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
     public void SetOffset(float offset)
     {
         position = offset;
+        background.GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
         if (!dragging)
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(offset, 0);
+        {
+            if (icon != null)
+                icon.GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
+        }
     }
 
     public void OnDrag (PointerEventData eventData)
     {
         if (type == BlockType.Empty)
             return;
-        GetComponent<RectTransform>().anchoredPosition = Input.mousePosition;
+        if (icon != null)
+            icon.GetComponent<RectTransform>().anchoredPosition = Input.mousePosition;
         dragging = true;
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
@@ -74,7 +109,8 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
+        if (icon != null)
+            icon.GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
         dragging = false;
         if (buildingUnderMouse != null&&type!=BlockType.Empty)
         {
@@ -91,7 +127,7 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
             if (found)
             {
                 buildingUnderMouse.AddResource(type);
-                Destroy(gameObject);
+                DestroyIcon ();
             }
         }
         buildingUnderMouse = null;

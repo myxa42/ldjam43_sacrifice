@@ -11,6 +11,12 @@ public class Blocks : ScriptableObject
     public GameObject coin;
     public GameObject dress;
     public GameObject fabric;
+    public GameObject bomb;
+    public GameObject cake;
+    public GameObject wheat;
+    public GameObject bread;
+    public GameObject tools;
+
 
     public GameObject GetPrefab(BlockType type)
     {
@@ -22,6 +28,11 @@ public class Blocks : ScriptableObject
             case BlockType.Crown: return crown;
             case BlockType.Fabric: return fabric;
             case BlockType.Dress: return dress;
+            case BlockType.Bomb: return bomb;
+            case BlockType.Cake: return cake;
+            case BlockType.Wheat: return wheat;
+            case BlockType.Bread: return bread;
+            case BlockType.Tools: return tools;
         }
         return null;
     }

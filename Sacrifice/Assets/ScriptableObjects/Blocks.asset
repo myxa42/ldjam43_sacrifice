@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae987634c53a64a5aa5efedf6be28996, type: 3}
   m_Name: Blocks
   m_EditorClassIdentifier: 
-  empty: {fileID: 2408637942109347678, guid: d7f09df943161483585ca2b7e3c947a5, type: 3}
-  gold: {fileID: 9078389413388080792, guid: ae521705caf444829b0abe703ef32435, type: 3}
-  crown: {fileID: 2996384218899210282, guid: 3c1888297f4ed480386a547a04c4881b, type: 3}
+  empty: {fileID: 3592028170279493245, guid: a6822f829a50344e9a2a70f2aecf7148, type: 3}
+  gold: {fileID: 3592028170279493245, guid: 8c3483f19ea96458d93fca8419ec2a68, type: 3}
+  crown: {fileID: 3592028170279493245, guid: e4a5ff5fe94664704af1f2246aaf9589, type: 3}
   coin: {fileID: 3592028170279493245, guid: 26745699c620e4b1189ed29148796b1e, type: 3}
-  dress: {fileID: 7151662106808908037, guid: 4b3f995465b5945b3a91b966bee6e209, type: 3}
-  fabric: {fileID: 5747684347994935287, guid: 06da63c24af3d4ec68a22c95e917e087, type: 3}
+  dress: {fileID: 3592028170279493245, guid: 79e76df811c2f44899d96ba6bda71f99, type: 3}
+  fabric: {fileID: 3592028170279493245, guid: a837d7a54898a48608e313516c39e033, type: 3}
+  bomb: {fileID: 3592028170279493245, guid: 4aa82f8adedc44fae9a791b385640772, type: 3}
+  cake: {fileID: 3592028170279493245, guid: 4c4e984ca62254a57b2f4e67b896b632, type: 3}
+  wheat: {fileID: 3592028170279493245, guid: b3167109d549f4b21834df81e4941352, type: 3}
+  bread: {fileID: 3592028170279493245, guid: e30548692295c4934b058f3dd5c2c56b, type: 3}
+  tools: {fileID: 3592028170279493245, guid: 18411c19c549c4f00930aa9c0cc91623, type: 3}
