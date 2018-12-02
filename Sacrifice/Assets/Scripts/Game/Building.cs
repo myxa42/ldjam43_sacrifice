@@ -17,7 +17,7 @@ public class Building : MonoBehaviour
     public Resource[] requiredResources;
     private Dictionary<BlockType, int> availableResources = new Dictionary<BlockType, int>();
     public GameController gameController;
-    public BlockType product=BlockType.Empty;
+    public BlockType[] products;
     public float workTime = 1;
     private float timeLeft;
     private bool building;
@@ -62,9 +62,10 @@ public class Building : MonoBehaviour
             if (building)
             {
                 building = false;
-                if (product != BlockType.Empty)
+                if (products.Length > 0)
                 {
-                    gameController.pendingBlocks.Enqueue(product);
+                    int index = RandomGenerator.NextInt(0, products.Length);
+                    gameController.pendingBlocks.Enqueue(products[index]);
                 }
             }
             activeImage.enabled = false;
