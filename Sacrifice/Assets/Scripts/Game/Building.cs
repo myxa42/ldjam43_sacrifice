@@ -24,6 +24,9 @@ public class Building : MonoBehaviour
     public bool isCastle;
     public int princessSpawnProbability;
     public int princeSpawnProbability;
+    public Text CrownCount;
+    public Text CakeCount;
+    public Text DressCount;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +45,27 @@ public class Building : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DressCount != null)
+        {
+            int n = 0;
+            availableResources.TryGetValue(BlockType.Dress, out n);
+            DressCount.text = n.ToString();
+        }
+
+        if (CakeCount != null)
+        {
+            int n = 0;
+            availableResources.TryGetValue(BlockType.Cake, out n);
+            CakeCount.text = n.ToString();
+        }
+
+        if (CrownCount != null)
+        {
+            int n = 0;
+            availableResources.TryGetValue(BlockType.Crown, out n);
+            CrownCount.text = n.ToString();
+        }
+
         if (Block.buildingUnderMouse == this)
         {
             activeImage.color = new Color(0, 1, 0, 1);

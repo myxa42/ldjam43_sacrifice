@@ -19,7 +19,7 @@ public class BlockPanel : MonoBehaviour
         for (float x = 0; x <= image.rectTransform.rect.width + Block.Width / 2; x += Block.Width)
         {
             var go = Instantiate(BlockList.empty);
-            go.transform.SetParent(transform);
+            go.transform.SetParent(transform, false);
             var block = go.GetComponent<Block>();
             block.SetIndex(i++);
             blocks.Add(block);
@@ -65,7 +65,7 @@ public class BlockPanel : MonoBehaviour
             }
 
             var go = Instantiate(BlockList.GetPrefab(type));
-            go.transform.SetParent(transform);
+            go.transform.SetParent(transform, false);
             var block = go.GetComponent<Block>();
             block.SetOffset(x);
             blocks.Add(block);
