@@ -12,6 +12,8 @@ public class RoyalPerson : MonoBehaviour
     public Image surprised;
     public Image unhappy;
     public float speed = 1;
+    [System.NonSerialized] public GameController gameController;
+    public bool arrived;
 
     private void Start()
     {
@@ -35,6 +37,11 @@ public class RoyalPerson : MonoBehaviour
             normal.enabled = false;
             surprised.enabled = false;
             unhappy.enabled = true;
+            if (!arrived)
+            {
+                arrived = true;
+                gameController.dragon.Eat(this);
+            }
         }
         else
         {

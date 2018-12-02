@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 3356067424300998443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 3356067425774286872}
   - {fileID: 3356067425526314830}
@@ -95,7 +95,7 @@ MonoBehaviour:
   - blockType: 3
     count: 1
   gameController: {fileID: 0}
-  product: 4
+  products: 
   workTime: 1
 --- !u!1 &3356067425526314831
 GameObject:

@@ -21,6 +21,9 @@ public class Building : MonoBehaviour
     public float workTime = 1;
     private float timeLeft;
     private bool building;
+    public bool isCastle;
+    public int princessSpawnProbability;
+    public int princeSpawnProbability;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +69,15 @@ public class Building : MonoBehaviour
                 {
                     int index = RandomGenerator.NextInt(0, products.Length);
                     gameController.pendingBlocks.Enqueue(products[index]);
+                }
+                if (isCastle)
+                {
+                    int total = princeSpawnProbability + princessSpawnProbability;
+                    int n = RandomGenerator.NextInt(0, total);
+                    if (n < princeSpawnProbability)
+                        gameController.SpawnPrince();
+                    else
+                        gameController.SpawnPrincess();
                 }
             }
             activeImage.enabled = false;

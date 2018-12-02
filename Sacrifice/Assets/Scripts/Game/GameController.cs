@@ -1,12 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public Queue<BlockType> pendingBlocks = new Queue<BlockType>();
     public float coinSpawnFrequency = 1;
     private float timeUntilNextCoin;
+    public Canvas canvas;
+    public Route route;
+    public Dragon dragon;
+    public GameObject princessPrefab;
+    public GameObject princePrefab;
+
+    public void SpawnPrincess()
+    {
+        SpawnRoyalPerson(princessPrefab);
+    }
+
+    public void SpawnPrince()
+    {
+        SpawnRoyalPerson(princePrefab);
+    }
+
+    private void SpawnRoyalPerson(GameObject prefab)
+    {
+        var person = Instantiate(prefab, canvas.transform).GetComponent<RoyalPerson>();
+        person.gameController = this;
+        person.route = route;
+    }
 
     private void Update()
     {

@@ -22,7 +22,7 @@ public enum BlockType
 public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public const float Width = 100;
-    public bool dragging;
+    [System.NonSerialized] public bool dragging;
     private float position;
     public static Building buildingUnderMouse;
     public BlockType type;
