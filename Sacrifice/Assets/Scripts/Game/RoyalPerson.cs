@@ -14,6 +14,8 @@ public class RoyalPerson : MonoBehaviour
     public float speed = 1;
     [System.NonSerialized] public GameController gameController;
     public bool arrived;
+    public AudioSource uhohSound;
+    private bool seenDragon;
 
     private void Start()
     {
@@ -56,6 +58,15 @@ public class RoyalPerson : MonoBehaviour
             normal.enabled = waypoint<route.waypoints.Length-3;
             surprised.enabled = waypoint == route.waypoints.Length - 3;
             unhappy.enabled = waypoint >= route.waypoints.Length - 2;
+        }
+
+        if (unhappy.enabled)
+        {
+            if (!seenDragon)
+            {
+                seenDragon = true;
+                uhohSound.Play();
+            }
         }
     }
 }

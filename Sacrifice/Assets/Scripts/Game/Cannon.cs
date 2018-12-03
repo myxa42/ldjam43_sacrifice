@@ -14,6 +14,7 @@ public class Cannon : MonoBehaviour
     public GameObject prefab;
     private Canvas canvas;
     public ParticleSystem particleSystem;
+    public AudioSource audioSource;
 
     void Start()
     {
@@ -64,6 +65,8 @@ public class Cannon : MonoBehaviour
             return;
 
         --count;
+        audioSource.Play();
+
         var ball = Instantiate(prefab, canvas.transform);
         ball.transform.position = marker.transform.position;
         ball.GetComponent<CannonBall>().target = prince;

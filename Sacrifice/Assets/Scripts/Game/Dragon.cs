@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Spine;
 using Spine.Unity;
 
@@ -10,6 +11,9 @@ public class Dragon : MonoBehaviour
     private Queue<RoyalPerson> personsToEat = new Queue<RoyalPerson>();
     private TrackEntry currentEatAnimation;
     public GameController gameController;
+    public AudioSource omnomnomSound;
+    public AudioSource niceFoodSound;
+    public AudioSource badFoodSound;
 
     public void Eat(RoyalPerson person)
     {
@@ -39,6 +43,16 @@ public class Dragon : MonoBehaviour
         }
     }
 
+    private void OnEvent(TrackEntry track, Spine.Event e)
+    {
+        if (e.data.Name == "omnomnom")
+            omnomnomSound.Play();
+        else if (e.data.Name == "mmm")
+            niceFoodSound.Play();
+        else if (e.data.Name == "badfood")
+            badFoodSound.Play();
+    }
+
     private void DoEat(RoyalPerson person)
     {
         if (person.isEdible)
@@ -53,5 +67,8 @@ public class Dragon : MonoBehaviour
 
         currentEatAnimation.Complete -= OnComplete;
         currentEatAnimation.Complete += OnComplete;
+
+        currentEatAnimation.Event -= OnEvent;
+        currentEatAnimation.Event += OnEvent;
     }
 }

@@ -27,6 +27,7 @@ public class Building : MonoBehaviour
     public Text CrownCount;
     public Text CakeCount;
     public Text DressCount;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class Building : MonoBehaviour
         int n=0;
         availableResources.TryGetValue(type, out n);
         availableResources[type] = n+count;
+        audioSource.Play();
     }
 
     // Update is called once per frame

@@ -1,5 +1,5 @@
 {
-"skeleton": { "hash": "a0UoRri0uYIOLkFtwp6p5Av/3Fo", "spine": "3.6.53", "width": 2321.08, "height": 1456.27, "images": "" },
+"skeleton": { "hash": "IBLcH1ziH8QB1sshfPpvpkO6QXE", "spine": "3.6.53", "width": 2321.08, "height": 1456.27, "images": "" },
 "bones": [
 	{ "name": "root" },
 	{ "name": "arm_L", "parent": "root", "length": 339.5, "rotation": -126.73, "x": -272.71, "y": 582.95 },
@@ -120,6 +120,8 @@
 	}
 },
 "events": {
+	"badfood": {},
+	"mmm": {},
 	"omnomnom": {}
 },
 "animations": {
@@ -715,6 +717,9 @@
 					{ "slot": "LowerJaw", "offset": 1 }
 				]
 			}
+		],
+		"events": [
+			{ "time": 1.7, "name": "badfood" }
 		]
 	},
 	"eat_princess": {
@@ -1247,7 +1252,8 @@
 			}
 		},
 		"events": [
-			{ "time": 1.5, "name": "omnomnom" }
+			{ "time": 1.5, "name": "omnomnom" },
+			{ "time": 2.5, "name": "mmm" }
 		]
 	},
 	"idle": {
