@@ -14,6 +14,7 @@ public class Dragon : MonoBehaviour
     public AudioSource omnomnomSound;
     public AudioSource niceFoodSound;
     public AudioSource badFoodSound;
+    private bool gameOver;
 
     public void Eat(RoyalPerson person)
     {
@@ -30,6 +31,9 @@ public class Dragon : MonoBehaviour
     {
         if (track == currentEatAnimation)
         {
+            if (gameOver)
+                SceneManager.LoadScene("GameOver");
+
             currentEatAnimation = null;
             if (personsToEat.Count > 0)
             {
@@ -61,7 +65,10 @@ public class Dragon : MonoBehaviour
             currentEatAnimation = animation.AnimationState.SetAnimation(0, "eat_princess", false);
         }
         else
+        {
             currentEatAnimation = animation.AnimationState.SetAnimation(0, "eat_prince", false);
+            gameOver = true;
+        }
 
         Destroy(person.gameObject);
 

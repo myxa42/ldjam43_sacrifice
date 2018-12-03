@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -17,6 +18,12 @@ public class GameController : MonoBehaviour
     [System.NonSerialized] public int sacrificedCount;
     public List<RoyalPerson> princesInMotion = new List<RoyalPerson>();
     public GameObject deadPrincePrefab;
+    public GameObject pauseMenu;
+
+    void Start()
+    {
+        pauseMenu.SetActive(false);
+    }
 
     public void SpawnPrincess()
     {
@@ -35,6 +42,30 @@ public class GameController : MonoBehaviour
         person.gameController = this;
         person.route = route;
         return person;
+    }
+
+    public void Pause()
+    {
+        if (!pauseMenu.activeSelf)
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void Unpause()
+    {
+        if (pauseMenu.activeSelf)
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Game");
     }
 
     private void Update()

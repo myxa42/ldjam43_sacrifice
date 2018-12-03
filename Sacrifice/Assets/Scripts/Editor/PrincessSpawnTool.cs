@@ -14,6 +14,8 @@ public class PrincessSpawnTool : Editor
                 ((GameController)target).SpawnPrincess();
             if (GUILayout.Button("Spawn prince"))
                 ((GameController)target).SpawnPrince();
+            if (GUILayout.Button("Add cannon shot"))
+                FindObjectOfType<Cannon>().AddBall();
         }
 
         base.OnInspectorGUI();
