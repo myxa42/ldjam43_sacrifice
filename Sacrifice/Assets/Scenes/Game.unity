@@ -1528,6 +1528,7 @@ RectTransform:
   - {fileID: 1885351174}
   - {fileID: 619774155}
   - {fileID: 1417689564}
+  - {fileID: 1833321342}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1710,6 +1711,7 @@ MonoBehaviour:
     type: 3}
   princePrefab: {fileID: 7364967704902351583, guid: 727dc90d46a2c402788122064a07d1ad,
     type: 3}
+  sacrificedText: {fileID: 1833321340}
 --- !u!4 &957739818
 Transform:
   m_ObjectHideFlags: 0
@@ -3411,6 +3413,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd4ee00ae377440cb92444dc53c0abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1833321339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1833321342}
+  - component: {fileID: 1833321341}
+  - component: {fileID: 1833321340}
+  m_Layer: 5
+  m_Name: SacrificeCount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1833321340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833321339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.745283, g: 0.17225882, b: 0.17225882, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 35
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 6
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Princesses sacrificed: 0'
+--- !u!222 &1833321341
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833321339}
+  m_CullTransparentMesh: 0
+--- !u!224 &1833321342
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833321339}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 815957240}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 1000, y: 50}
+  m_Pivot: {x: 0, y: 0}
 --- !u!224 &1885351174 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3356067424300998442, guid: c00f8e3dec9274bbbb25de3899139a69,
@@ -4401,6 +4482,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1455649452, guid: 477a9eb98f8fb45c0a5c748260ee8bdc, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 957739817}
     - target: {fileID: 6906646251111395768, guid: 477a9eb98f8fb45c0a5c748260ee8bdc,
         type: 3}
       propertyPath: m_IsActive

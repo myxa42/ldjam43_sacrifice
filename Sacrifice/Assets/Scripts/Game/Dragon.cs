@@ -9,6 +9,7 @@ public class Dragon : MonoBehaviour
     public SkeletonGraphic animation;
     private Queue<RoyalPerson> personsToEat = new Queue<RoyalPerson>();
     private TrackEntry currentEatAnimation;
+    public GameController gameController;
 
     public void Eat(RoyalPerson person)
     {
@@ -41,7 +42,10 @@ public class Dragon : MonoBehaviour
     private void DoEat(RoyalPerson person)
     {
         if (person.isEdible)
+        {
+            gameController.sacrificedCount++;
             currentEatAnimation = animation.AnimationState.SetAnimation(0, "eat_princess", false);
+        }
         else
             currentEatAnimation = animation.AnimationState.SetAnimation(0, "eat_prince", false);
 

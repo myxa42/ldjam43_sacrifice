@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     public Dragon dragon;
     public GameObject princessPrefab;
     public GameObject princePrefab;
+    public Text sacrificedText;
+    [System.NonSerialized] public int sacrificedCount;
 
     public void SpawnPrincess()
     {
@@ -33,6 +35,8 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        sacrificedText.text = $"Princesses sacrificed: {sacrificedCount}";
+
         timeUntilNextCoin -= Time.deltaTime;
         if (timeUntilNextCoin <= 0)
         {
