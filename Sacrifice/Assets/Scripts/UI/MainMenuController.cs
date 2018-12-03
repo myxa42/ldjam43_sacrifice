@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    void Awake()
+    {
+        SoundController.defeat = false;
+    }
+
     public void Play()
     {
         SceneManager.LoadScene("Game");

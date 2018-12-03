@@ -8,8 +8,10 @@ public class SoundController : MonoBehaviour
     private static bool soundEnabled;
     private static bool musicEnabled;
     private static SoundController instance;
-    public AudioSource musicSource;
+    public AudioSource normalMusicSource;
+    public AudioSource defeatMusicSource;
     public AudioMixer mixer;
+    public static bool defeat;
 
     void Start()
     {
@@ -58,10 +60,18 @@ public class SoundController : MonoBehaviour
 
     void Update()
     {
-        if (musicEnabled && !musicSource.isPlaying)
-            musicSource.Play();
-        else if (!musicEnabled && musicSource.isPlaying)
-            musicSource.Stop();
+        bool playNormal = musicEnabled && !defeat;
+        bool playDefeat = musicEnabled && defeat;
+
+        if (playNormal && !normalMusicSource.isPlaying)
+            normalMusicSource.Play();
+        else if (!playNormal && normalMusicSource.isPlaying)
+            normalMusicSource.Stop();
+
+        if (playDefeat && !defeatMusicSource.isPlaying)
+            defeatMusicSource.Play();
+        else if (!playDefeat && defeatMusicSource.isPlaying)
+            defeatMusicSource.Stop();
 
         float volume;
         if (mixer.GetFloat("SfxVolume", out volume))

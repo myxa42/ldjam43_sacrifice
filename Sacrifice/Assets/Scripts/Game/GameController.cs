@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        SoundController.defeat = false;
         pauseMenu.SetActive(false);
     }
 
