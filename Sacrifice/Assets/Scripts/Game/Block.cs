@@ -28,6 +28,7 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
     public BlockType type;
     public Image background;
     public Image icon;
+    public static Cannon cannonUnderMouse;
 
     void Start ()
     {
@@ -86,8 +87,14 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (type == BlockType.Empty)
             return;
+
         if (icon != null)
-            icon.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().worldToLocalMatrix * Input.mousePosition;
+        {
+            Vector2 vec;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out vec);
+            icon.GetComponent<RectTransform>().anchoredPosition = vec;
+        }
+
         dragging = true;
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
@@ -98,12 +105,22 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
             {
                 building = r.gameObject.transform.parent.gameObject.GetComponent<Building>();
             }
+
             if (building != null)
             {
                 buildingUnderMouse = building;
                 return;
             }
+
+            var cannon = r.gameObject.GetComponent<Cannon>();
+            if (cannon != null)
+            {
+                cannonUnderMouse = cannon;
+                return;
+            }
         }
+
+        cannonUnderMouse = null;
         buildingUnderMouse = null;
     }
 
@@ -111,7 +128,9 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         if (icon != null)
             icon.GetComponent<RectTransform>().anchoredPosition = new Vector2(position, 0);
+
         dragging = false;
+
         if (buildingUnderMouse != null&&type!=BlockType.Empty)
         {
             bool found = false;
@@ -130,6 +149,14 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
                 DestroyIcon ();
             }
         }
+
+        if (cannonUnderMouse != null && type == BlockType.Bomb)
+        {
+            cannonUnderMouse.AddBall();
+            DestroyIcon();
+        }
+
+        cannonUnderMouse = null;
         buildingUnderMouse = null;
     }
 }

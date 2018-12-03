@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
     public GameObject princePrefab;
     public Text sacrificedText;
     [System.NonSerialized] public int sacrificedCount;
+    public List<RoyalPerson> princesInMotion = new List<RoyalPerson>();
+    public GameObject deadPrincePrefab;
 
     public void SpawnPrincess()
     {
@@ -23,14 +25,16 @@ public class GameController : MonoBehaviour
 
     public void SpawnPrince()
     {
-        SpawnRoyalPerson(princePrefab);
+        var person = SpawnRoyalPerson(princePrefab);
+        princesInMotion.Add(person);
     }
 
-    private void SpawnRoyalPerson(GameObject prefab)
+    private RoyalPerson SpawnRoyalPerson(GameObject prefab)
     {
         var person = Instantiate(prefab, canvas.transform).GetComponent<RoyalPerson>();
         person.gameController = this;
         person.route = route;
+        return person;
     }
 
     private void Update()

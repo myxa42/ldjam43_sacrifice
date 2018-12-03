@@ -1493,8 +1493,8 @@ Canvas:
   m_GameObject: {fileID: 815957236}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1712,6 +1712,9 @@ MonoBehaviour:
   princePrefab: {fileID: 7364967704902351583, guid: 727dc90d46a2c402788122064a07d1ad,
     type: 3}
   sacrificedText: {fileID: 1833321340}
+  princesInMotion: []
+  deadPrincePrefab: {fileID: 8300581114954512817, guid: 74157951afd1840f7a850c1b51fccd38,
+    type: 3}
 --- !u!4 &957739818
 Transform:
   m_ObjectHideFlags: 0
@@ -4099,11 +4102,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 374438756799641793, guid: 4a29282aef7d949539e2a0f6423ff3b4,
+    - target: {fileID: 6524369961077662367, guid: 4a29282aef7d949539e2a0f6423ff3b4,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 957739817}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a29282aef7d949539e2a0f6423ff3b4, type: 3}
 --- !u!1001 &3356067425372475035

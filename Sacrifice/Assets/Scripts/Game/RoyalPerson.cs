@@ -22,6 +22,11 @@ public class RoyalPerson : MonoBehaviour
         unhappy.enabled = false;
     }
 
+    private void OnDestroy()
+    {
+        gameController.princesInMotion.Remove(this);
+    }
+
     private void SetPosition(Vector2 pos)
     {
         GetComponent<RectTransform>().anchoredPosition = pos;

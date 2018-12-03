@@ -400,6 +400,9 @@ MonoBehaviour:
   isCastle: 0
   princessSpawnProbability: 0
   princeSpawnProbability: 0
+  CrownCount: {fileID: 0}
+  CakeCount: {fileID: 0}
+  DressCount: {fileID: 0}
 --- !u!1 &3356067425526314831
 GameObject:
   m_ObjectHideFlags: 0
