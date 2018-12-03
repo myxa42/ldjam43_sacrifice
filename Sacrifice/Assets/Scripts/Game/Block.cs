@@ -87,7 +87,7 @@ public class Block : MonoBehaviour, IDragHandler, IEndDragHandler
         if (type == BlockType.Empty)
             return;
         if (icon != null)
-            icon.GetComponent<RectTransform>().anchoredPosition = Input.mousePosition;
+            icon.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().worldToLocalMatrix * Input.mousePosition;
         dragging = true;
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
